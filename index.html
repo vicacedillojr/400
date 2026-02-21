@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7c3aed" />
+  <meta name="description" content="400 Affirmations for Filipino Teens Growing Up Between Worlds by Lolo Berto" />
+  <title>Hindi Ka Kalahati · You Are Not Half</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <style>
+    :root {
+      --purple: #7c3aed;
+      --purple-dark: #5b21b6;
+      --purple-light: #ede9fe;
+      --gold: #f59e0b;
+      --gold-light: #fef3c7;
+      --red: #dc2626;
+      --blue: #0ea5e9;
+      --green: #10b981;
+      --pink: #ec4899;
+      --teal: #14b8a6;
+      --orange: #f97316;
+      --indigo: #6366f1;
+      --rose: #f43f5e;
+      --bg: #0f0a1e;
+      --surface: #1a1233;
+      --surface2: #231845;
+      --text: #f1f0ff;
+      --text-muted: #9d8ec7;
+      --border: #2d2060;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* SPLASH / HEADER */
+    .app-header {
+      background: linear-gradient(135deg, #4c1d95, #7c3aed, #be185d);
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .app-header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      position: relative;
+    }
+    .app-header h1 span { color: var(--gold); }
+    .app-header p {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      position: relative;
+    }
+    .app-header .author {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 0.25rem;
+      position: relative;
+    }
+
+    /* NAV */
+    .nav-bar {
+      display: flex;
+      gap: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-btn {
+      flex: none;
+      padding: 0.75rem 1.2rem;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-btn.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+      background: rgba(245,158,11,0.06);
+    }
+    .nav-btn:hover { color: var(--text); }
+
+    /* VIEWS */
+    .view { display: none; padding: 1rem; }
+    .view.active { display: block; }
+
+    /* SEARCH */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      margin-bottom: 1rem;
+    }
+    .search-bar input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .search-bar input::placeholder { color: var(--text-muted); }
+
+    /* CATEGORY GRID */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .cat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .cat-card:hover { transform: translateY(-2px); border-color: var(--purple); }
+    .cat-card .cat-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .cat-card .cat-name { font-size: 0.78rem; font-weight: 700; line-height: 1.3; }
+    .cat-card .cat-range { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* AFFIRMATION CARDS */
+    .affirmations-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .aff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .aff-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent, var(--purple));
+    }
+    .aff-card:hover { transform: translateX(4px); border-color: var(--accent, var(--purple)); }
+    .aff-card .aff-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent, var(--purple));
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+    .aff-card .aff-en {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .aff-card .aff-tl {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .aff-card .fav-btn {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .aff-card .fav-btn:hover { opacity: 1; transform: scale(1.2); }
+    .aff-card .fav-btn.active { opacity: 1; }
+
+    /* DAILY CARD */
+    .daily-splash {
+      background: linear-gradient(135deg, var(--surface2), #2d1b69);
+      border: 1px solid var(--purple);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .daily-splash::after {
+      content: '✨';
+      position: absolute;
+      font-size: 6rem;
+      opacity: 0.05;
+      top: -1rem;
+      right: -1rem;
+    }
+    .daily-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .daily-num {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .daily-en {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .daily-tl {
+      font-size: 1rem;
+      color: var(--gold);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .daily-actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
+    .btn {
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--purple); color: white; }
+    .btn-primary:hover { background: var(--purple-dark); }
+    .btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--purple); }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .back-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.4rem 0.75rem;
+      color: var(--text);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .section-title { font-size: 1.1rem; font-weight: 700; }
+
+    /* PROGRESS */
+    .progress-bar-wrap {
+      background: var(--surface);
+      border-radius: 100px;
+      height: 6px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+      border-radius: 100px;
+      transition: width 0.5s;
+    }
+
+    /* STATS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-num { font-size: 1.6rem; font-weight: 800; color: var(--gold); }
+    .stat-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+    /* EMPTY STATE */
+    .empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); }
+    .empty .icon { font-size: 3rem; margin-bottom: 0.75rem; }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 2px;
+      margin-left: auto;
+    }
+    .lang-btn {
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      border: none;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: none;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .lang-btn.active { background: var(--purple); color: white; }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    /* INSTALL BANNER */
+    .install-banner {
+      background: linear-gradient(135deg, #4c1d95, #7c3aed);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .install-banner .icon { font-size: 1.5rem; flex-shrink: 0; }
+    .install-banner .text { flex: 1; }
+    .install-banner .text strong { display: block; font-size: 0.85rem; }
+    .install-banner .text span { font-size: 0.75rem; opacity: 0.75; }
+    .install-btn {
+      background: white;
+      color: var(--purple);
+      border: none;
+      border-radius: 100px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-header">
+  <h1>Hindi Ka Kalahati<br><span>You Are Not Half ✨</span></h1>
+  <p>400 Affirmations for Filipino Teens</p>
+  <div class="author">by Lolo Berto</div>
+</div>
+
+<nav class="nav-bar">
+  <button class="nav-btn active" onclick="showView('home')">🏠 Home</button>
+  <button class="nav-btn" onclick="showView('browse')">📚 Browse</button>
+  <button class="nav-btn" onclick="showView('favorites')">❤️ Favorites</button>
+  <button class="nav-btn" onclick="showView('search')">🔍 Search</button>
+</nav>
+
+<!-- HOME -->
+<div id="view-home" class="view active">
+  <div id="install-banner" class="install-banner" style="display:none">
+    <div class="icon">📲</div>
+    <div class="text">
+      <strong>Install App</strong>
+      <span>Save to home screen for offline use</span>
+    </div>
+    <button class="install-btn" id="install-btn">Install</button>
+  </div>
+
+  <div class="daily-splash" id="daily-card">
+    <div class="daily-badge">✨ AFFIRMATION OF THE DAY</div>
+    <div class="daily-num" id="daily-num">#1</div>
+    <div class="daily-en" id="daily-en">Loading...</div>
+    <div class="daily-tl" id="daily-tl">...</div>
+    <div class="daily-actions">
+      <button class="btn btn-ghost" onclick="randomAffirmation()">🎲 Random</button>
+      <button class="btn btn-primary" id="daily-fav-btn" onclick="toggleFavFromDaily()">♡ Save</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">400</div>
+      <div class="stat-label">Affirmations</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-fav">0</div>
+      <div class="stat-label">Saved</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-read">0</div>
+      <div class="stat-label">Read</div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:1rem">
+    <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.4rem;">Reading progress</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div style="font-size:0.85rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-muted);">CATEGORIES</div>
+  <div class="category-grid" id="home-categories"></div>
+</div>
+
+<!-- BROWSE -->
+<div id="view-browse" class="view">
+  <div id="browse-categories">
+    <div style="font-size:1rem;font-weight:700;margin-bottom:1rem;">All Categories</div>
+    <div class="category-grid" id="all-categories"></div>
+  </div>
+  <div id="browse-list" style="display:none">
+    <div class="section-header">
+      <button class="back-btn" onclick="showCategories()">← Back</button>
+      <div>
+        <div class="section-title" id="browse-title"></div>
+        <div style="font-size:0.72rem;color:var(--text-muted)" id="browse-sub"></div>
+      </div>
+      <div class="lang-toggle" style="margin-left:auto">
+        <button class="lang-btn active" id="lang-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="lang-tl" onclick="setLang('tl')">TL</button>
+        <button class="lang-btn" id="lang-both" onclick="setLang('both')">Both</button>
+      </div>
+    </div>
+    <div class="affirmations-list" id="browse-affirmations"></div>
+  </div>
+</div>
+
+<!-- FAVORITES -->
+<div id="view-favorites" class="view">
+  <div class="top-controls">
+    <div style="font-size:1rem;font-weight:700;">❤️ Saved Affirmations</div>
+    <div class="lang-toggle" style="margin-left:auto">
+      <button class="lang-btn active" id="fav-lang-en" onclick="setFavLang('en')">EN</button>
+      <button class="lang-btn" id="fav-lang-tl" onclick="setFavLang('tl')">TL</button>
+      <button class="lang-btn" id="fav-lang-both" onclick="setFavLang('both')">Both</button>
+    </div>
+  </div>
+  <div class="affirmations-list" id="fav-list"></div>
+</div>
+
+<!-- SEARCH -->
+<div id="view-search" class="view">
+  <div class="search-bar">
+    <span>🔍</span>
+    <input type="text" id="search-input" placeholder="Search affirmations..." oninput="doSearch()" />
+  </div>
+  <div class="affirmations-list" id="search-results">
+    <div class="empty"><div class="icon">🌺</div><div>Type to search 400 affirmations</div></div>
+  </div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const CATEGORIES = [
+  { id: 'belonging', name: 'Belonging', tl: 'Pagmamay-ari', icon: '🏡', color: '#7c3aed', range: [1,10] },
+  { id: 'language', name: 'Language & Accent', tl: 'Wika at Diin', icon: '🗣️', color: '#0ea5e9', range: [11,20] },
+  { id: 'half', name: 'Being "Half"', tl: 'Pagiging "Kalahati"', icon: '🌗', color: '#ec4899', range: [21,30] },
+  { id: 'family', name: 'Family & Ancestry', tl: 'Pamilya at Ninuno', icon: '🌳', color: '#10b981', range: [31,40] },
+  { id: 'bullying', name: 'Bullying & Stereotypes', tl: 'Pang-aapi at Stereotipo', icon: '🛡️', color: '#f97316', range: [41,50] },
+  { id: 'pride', name: 'Filipino Pride', tl: 'Pagmamalaking Pilipino', icon: '🇵🇭', color: '#dc2626', range: [51,60] },
+  { id: 'identity', name: 'Creating Your Own Identity', tl: 'Paglikha ng Sariling Pagkakakilanlan', icon: '✨', color: '#f59e0b', range: [61,70] },
+  { id: 'resilience', name: 'Resilience', tl: 'Tibay ng Loob', icon: '💪', color: '#6366f1', range: [71,80] },
+  { id: 'selflove', name: 'Self-Love & Acceptance', tl: 'Pagmamahal sa Sarili', icon: '💜', color: '#ec4899', range: [81,90] },
+  { id: 'hope', name: 'Hope & Future', tl: 'Pag-asa at Kinabukasan', icon: '🌅', color: '#14b8a6', range: [91,100] },
+  { id: 'twoworlds', name: 'Between Two Worlds', tl: 'Sa Pagitan ng Dalawang Mundo', icon: '🌏', color: '#7c3aed', range: [101,120] },
+  { id: 'roots', name: 'Roots & Blood Memory', tl: 'Ugat at Alaala ng Dugo', icon: '🌿', color: '#10b981', range: [121,140] },
+  { id: 'notenough', name: 'When You Feel "Not Enough"', tl: 'Kapag Hindi Ka Sapat', icon: '🌸', color: '#f43f5e', range: [141,160] },
+  { id: 'immigrant', name: 'Immigrant Parents & Sacrifice', tl: 'Magulang na Imigrante at Sakripisyo', icon: '🙏', color: '#f59e0b', range: [161,180] },
+  { id: 'growingpride', name: 'Growing Into Pride', tl: 'Paglago sa Pagmamalaki', icon: '🌻', color: '#0ea5e9', range: [181,200] },
+  { id: 'racism', name: 'When Racism Hurts', tl: 'Kapag Masakit ang Rasismo', icon: '💔', color: '#dc2626', range: [201,220] },
+  { id: 'stereotypes', name: 'Stereotypes & Being Boxed In', tl: 'Stereotipo at Limitasyon', icon: '📦', color: '#6366f1', range: [221,240] },
+  { id: 'confusion', name: 'Identity Confusion & Struggle', tl: 'Kalituhan sa Pagkakakilanlan', icon: '🌀', color: '#ec4899', range: [241,260] },
+  { id: 'strength', name: 'Strength & Resistance', tl: 'Lakas at Pagtutol', icon: '⚡', color: '#f97316', range: [261,280] },
+  { id: 'community', name: 'Finding Community', tl: 'Paghahanap ng Komunidad', icon: '🤝', color: '#14b8a6', range: [281,290] },
+  { id: 'future', name: 'Future & Self-Empowerment', tl: 'Kinabukasan at Pagpapalakas ng Sarili', icon: '🚀', color: '#7c3aed', range: [291,300] },
+  { id: 'mantras-identity', name: 'Daily Mantras: Identity', tl: 'Araw-araw na Mantra: Pagkakakilanlan', icon: '🪞', color: '#0ea5e9', range: [301,310] },
+  { id: 'mantras-roots', name: 'Daily Mantras: Roots', tl: 'Araw-araw na Mantra: Ugat', icon: '🌱', color: '#10b981', range: [311,320] },
+  { id: 'mantras-strength', name: 'Daily Mantras: Strength', tl: 'Araw-araw na Mantra: Lakas', icon: '🔥', color: '#dc2626', range: [321,330] },
+  { id: 'mantras-worth', name: 'Daily Mantras: Self-Worth', tl: 'Araw-araw na Mantra: Pagpapahalaga sa Sarili', icon: '👑', color: '#f59e0b', range: [331,340] },
+  { id: 'mantras-worlds', name: 'Daily Mantras: Between Worlds', tl: 'Araw-araw na Mantra: Sa Pagitan ng Mundo', icon: '🌍', color: '#6366f1', range: [341,350] },
+  { id: 'mantras-healing', name: 'Daily Mantras: Healing From Racism', tl: 'Araw-araw na Mantra: Paggaling mula sa Rasismo', icon: '🕊️', color: '#f43f5e', range: [351,360] },
+  { id: 'mantras-growth', name: 'Daily Mantras: Growth', tl: 'Araw-araw na Mantra: Paglago', icon: '🌾', color: '#10b981', range: [361,370] },
+  { id: 'mantras-community', name: 'Daily Mantras: Community', tl: 'Araw-araw na Mantra: Komunidad', icon: '🫂', color: '#14b8a6', range: [371,380] },
+  { id: 'mantras-future', name: 'Daily Mantras: Future', tl: 'Araw-araw na Mantra: Kinabukasan', icon: '⭐', color: '#7c3aed', range: [381,390] },
+  { id: 'mantras-power', name: 'Daily Mantras: Daily Power', tl: 'Araw-araw na Mantra: Araw-araw na Kapangyarihan', icon: '💫', color: '#ec4899', range: [391,400] },
+];
+
+const AFFIRMATIONS_EN = [
+  // BELONGING 1-10
+  "You don't have to choose one world.\nYou were born to carry two.",
+  "Being different is not a weakness.\nIt's your superpower.",
+  "You are not lost between cultures —\nyou are a bridge.",
+  "Home is not just a place.\nIt's in your blood.",
+  "You belong wherever your heart\nstands tall.",
+  "You don't have to shrink to fit in.",
+  "Your story is bigger than one country.",
+  "You are not \"too Filipino\" or\n\"not Filipino enough.\"\nYou are enough.",
+  "Two cultures mean twice the wisdom.",
+  "You are not divided.\nYou are expanded.",
+  // LANGUAGE & ACCENT 11-20
+  "Your accent is not something to hide.\nIt is proof of your journey.",
+  "Even if you don't speak Tagalog fluently,\nyour heart understands.",
+  "Language grows with time —\nidentity grows from love.",
+  "Mispronouncing a word does not\nerase your roots.",
+  "Every language you speak adds color\nto your voice.",
+  "Your silence in one language does not\nmean emptiness.",
+  "It's okay if you're still learning.",
+  "Your \"po\" and \"opo\" live in your\nrespect, not just your words.",
+  "Even broken Filipino is still Filipino.",
+  "Your voice matters in every language.",
+  // BEING "HALF" 21-30
+  "You are not half of anything.\nYou are double.",
+  "Mixed roots grow strong trees.",
+  "Being half Filipino means having\ntwo stories to tell.",
+  "You are a beautiful combination,\nnot a confusion.",
+  "Your identity is not a math problem.",
+  "You don't need to prove your Filipinoness.",
+  "Your blood carries islands and oceans.",
+  "You are whole, even if others\ndon't understand.",
+  "Being different makes you rare.",
+  "Your heritage is something to explore,\nnot defend.",
+  // FAMILY & ANCESTRY 31-40
+  "Your ancestors crossed oceans\nso you could cross boundaries.",
+  "Their courage lives in you.",
+  "You carry generations of resilience.",
+  "Your last name holds stories.",
+  "Even far from the Philippines,\nyour roots still breathe.",
+  "Your grandparents' sacrifices\nare your foundation.",
+  "You are someone's answered prayer.",
+  "Your family history is\nyour hidden strength.",
+  "The islands live in your heartbeat.",
+  "You are never alone —\nyou walk with your ancestors.",
+  // BULLYING & STEREOTYPES 41-50
+  "Other people's ignorance\nis not your burden.",
+  "You are more than stereotypes.",
+  "Your skin tone is sunshine,\nnot something to hide.",
+  "Stand tall — you come from warriors.",
+  "Their laughter cannot silence your pride.",
+  "You do not owe anyone an explanation.",
+  "You are not small.",
+  "Being underestimated is\na secret advantage.",
+  "You are allowed to take up space.",
+  "Your culture is not a joke.",
+  // FILIPINO PRIDE 51-60
+  "The Philippines is more than what\nthey show in textbooks.",
+  "You come from a people who\nsurvive storms.",
+  "Your culture is rich, not \"third world.\"",
+  "Filipino kindness is strength.",
+  "Hospitality is power.",
+  "You carry bayanihan in your spirit.",
+  "Resilience runs in your veins.",
+  "Your smile carries sunshine.",
+  "Filipino hearts are brave hearts.",
+  "You are part of a global family.",
+  // CREATING YOUR OWN IDENTITY 61-70
+  "You get to define who you are.",
+  "You are allowed to evolve.",
+  "Identity is a journey, not a test.",
+  "You don't need to fit into one box.",
+  "You can love adobo and pizza.",
+  "You can dance to K-pop and P-pop.",
+  "You are not confusing —\nyou are complex.",
+  "You can build your own version of home.",
+  "You are both tradition and future.",
+  "You are your own definition.",
+  // RESILIENCE 71-80
+  "You come from people who rise\nafter typhoons.",
+  "You can survive discomfort.",
+  "Every struggle shapes strength.",
+  "You are stronger than doubt.",
+  "Your tears water growth.",
+  "You were built for courage.",
+  "You can face unfamiliar spaces.",
+  "You are not fragile.",
+  "Your story is still unfolding.",
+  "You will find your place.",
+  // SELF-LOVE & ACCEPTANCE 81-90
+  "You are worthy of pride.",
+  "Your brown skin glows with history.",
+  "You are not \"too much.\"",
+  "You are not \"not enough.\"",
+  "You deserve to feel proud of your roots.",
+  "Your culture is a gift.",
+  "You don't need permission to love\nwhere you come from.",
+  "You are allowed to celebrate both sides.",
+  "Your identity is something to honor.",
+  "You are beautifully layered.",
+  // HOPE & FUTURE 91-100
+  "One day, you will thank yourself\nfor not hiding.",
+  "Your uniqueness will open doors.",
+  "You will inspire others like you.",
+  "Your story matters.",
+  "You are building bridges\nfor the next generation.",
+  "You are proof that cultures can coexist.",
+  "Your journey is powerful.",
+  "You are not alone in this.",
+  "There is space in the world\nfor all of you.",
+  "You are exactly who you are meant to be.",
+  // BETWEEN TWO WORLDS 101-120
+  "You were born where oceans meet —\nthat is not confusion, that is power.",
+  "You are not caught in between.\nYou are standing in the middle of possibility.",
+  "Two cultures do not tear you apart —\nthey stretch your heart wider.",
+  "You are allowed to love both places\nwithout guilt.",
+  "You are not betraying one side\nby embracing the other.",
+  "The world may ask you to choose.\nYou do not have to.",
+  "You are not divided — you are layered.",
+  "You carry different skies in one soul.",
+  "You are not misplaced.\nYou are multi-rooted.",
+  "You are not an outsider everywhere —\nyou are an insider in more than one place.",
+  "Your life is not split. It is expanded.",
+  "You are not half of two homes.\nYou are fully both.",
+  "The hyphen in your identity is not\na division — it is a bridge.",
+  "You speak more than one language of love.",
+  "You celebrate more than one way of being.",
+  "You know how to adapt — that is wisdom.",
+  "Your duality is your depth.",
+  "You can be rooted and still reach.",
+  "Being between worlds means\nyou see what others miss.",
+  "You are the future of cultures evolving together.",
+  // ROOTS & BLOOD MEMORY 121-140
+  "Your roots reach further than\nyour birthplace.",
+  "You carry the memory of islands\nin your bones.",
+  "Your ancestors' prayers built\nthe ground you walk on.",
+  "The ocean between you and the Philippines\ncannot cut your connection.",
+  "Your blood remembers what your mind\nhas not yet learned.",
+  "You are not rootless — you are far-reaching.",
+  "Your heritage does not expire\nbecause you live abroad.",
+  "The Filipino in you is not fading.\nIt is growing in a new way.",
+  "Your roots do not need soil —\nthey need memory.",
+  "Your history is worth knowing.",
+  "You come from a people of deep faith\nand deep love.",
+  "Your ancestors' strength flows\nthrough your veins.",
+  "You carry lolas and lolos with you\nwherever you go.",
+  "Your family's sacrifices planted seeds\nyou are still blooming from.",
+  "You are not disconnected from your culture.\nYou are in a new chapter of it.",
+  "Your bloodline is a story of survival.",
+  "You are a living extension of your people.",
+  "Your roots are invisible but unbreakable.",
+  "You honor your ancestors by standing tall.",
+  "Your heritage is your inheritance.",
+  // WHEN YOU FEEL "NOT ENOUGH" 141-160
+  "Feeling \"not enough\" is the wound —\nnot the truth.",
+  "You do not need to earn\nyour place in your own culture.",
+  "Not speaking Tagalog fluently\ndoes not make you less Filipino.",
+  "Not knowing every tradition\ndoes not erase your heritage.",
+  "You belong even when you feel unseen.",
+  "Your outsider feeling is temporary;\nyour identity is permanent.",
+  "You are enough — in both worlds, in all worlds.",
+  "You do not have to prove anything to anyone.",
+  "Your value is not measured\nby how Filipino you seem.",
+  "Shame does not belong in your story.",
+  "You are still learning, and that is enough.",
+  "Other Filipinos' judgments do not\ndefine your identity.",
+  "You are not less for being more.",
+  "You are not broken for being different.",
+  "The quiet pride inside you is real.",
+  "You carry your culture in ways\nothers cannot see.",
+  "Being uncertain does not mean\nyou are lost.",
+  "You deserve to reclaim your identity\non your own terms.",
+  "You were never meant to fit\nin just one definition.",
+  "You are not an imposter in your own culture.",
+  // IMMIGRANT PARENTS & FAMILY SACRIFICE 161-180
+  "Your parents gave up a world\nso you could inherit more.",
+  "Their sacrifice is not pressure —\nit is proof of love.",
+  "You do not owe your parents perfection,\nbut you can carry their courage.",
+  "The weight they carried made room\nfor your freedom.",
+  "Their silence about hardship\nwas its own kind of bravery.",
+  "You were raised on love disguised\nas hard work.",
+  "Your parent's accent is music,\nnot embarrassment.",
+  "Their dreams did not die\nwhen they moved — they became yours.",
+  "The OFW story is a love story.",
+  "Your parents did not leave the Philippines.\nThey expanded it.",
+  "Home cooking is how your culture\nholds you across the distance.",
+  "Their hands carried sacrifice;\nyour hands carry possibility.",
+  "Your family's path to survival\nbecame your path to strength.",
+  "They came with nothing so you\ncould become something.",
+  "Their love crossed oceans\nbefore you were born.",
+  "You are the answer to\nyour parents' biggest prayers.",
+  "Intergenerational sacrifice is\nthe Filipino love language.",
+  "Your parents' hard work is\nyour inherited courage.",
+  "You do not need to carry guilt;\nyou need to carry gratitude and joy.",
+  "You are your family's greatest hope —\nand you are rising.",
+  // GROWING INTO PRIDE 181-200
+  "Pride is not given — it is grown.",
+  "You grow into your identity at your own pace.",
+  "It is okay to be late\nto loving where you come from.",
+  "Pride often comes after pain.",
+  "Your journey to self-love is valid,\nno matter how long it takes.",
+  "There is no wrong way to discover\nyour roots.",
+  "Every Filipino dish you try\nis reclamation.",
+  "Every Tagalog word you learn\nis an act of love.",
+  "You do not have to be perfectly Filipino\nto be proudly Filipino.",
+  "Your pride may grow slowly —\nbut it grows.",
+  "One day you will wear your identity\nlike a crown.",
+  "The shame you felt before\nwas not the truth of who you are.",
+  "Growing into pride means\nunlearning the lies others told you.",
+  "You are allowed to be proud\nof things you are still learning about.",
+  "Your culture deserves\nyour curiosity.",
+  "Every generation gets a new chance\nto reclaim pride.",
+  "You are not betraying your roots\nby needing time to find them.",
+  "The pride of your people\nis waiting for you when you're ready.",
+  "You will look back at this time\nand be amazed by your growth.",
+  "Your pride is becoming.",
+  // WHEN RACISM HURTS 201-220
+  "Racism is the problem.\nYou are not.",
+  "You did not deserve what was said to you.",
+  "Your pain is valid.",
+  "You are not oversensitive.\nYou are aware.",
+  "Being made to feel small\ndoes not make you small.",
+  "You are allowed to be angry.",
+  "You are allowed to be hurt.",
+  "You are not responsible for\neducating everyone who wrongs you.",
+  "What they said reflects their ignorance,\nnot your worth.",
+  "You are not less because\nthey treated you as less.",
+  "Your skin is beautiful.\nTheir bias is not your truth.",
+  "Microaggressions are not \"little.\"\nYour feelings are not \"too much.\"",
+  "You are allowed to set limits\nwith people who diminish you.",
+  "Healing from racism is brave work.",
+  "You do not have to forgive on their timeline.",
+  "You are worthy of dignity in every space.",
+  "You are more than what prejudice says you are.",
+  "Every time you stand up,\nyou honor your people.",
+  "Your resistance is a form of love.",
+  "You were never the problem.",
+  // STEREOTYPES & BEING BOXED IN 221-240
+  "You are not a nanny, a nurse,\nor a statistic.",
+  "You are not your accent.",
+  "You are not your food.",
+  "You are not a model minority.",
+  "You do not have to be exceptional\nto deserve respect.",
+  "Your quiet strength is not weakness.",
+  "You are not required to smile\nthrough discrimination.",
+  "You are not \"exotic.\"",
+  "You are not background character\nin someone else's story.",
+  "You are the main character of your own life.",
+  "You are not limited by\nwhat others expect of Filipinos.",
+  "You can be a scientist, an artist,\na leader — all at once.",
+  "You are not a punchline.",
+  "You are not here to make others\nfeel comfortable with their assumptions.",
+  "You owe no one performance\nof what they think Filipino looks like.",
+  "Your complexity breaks every box\nthey try to put you in.",
+  "You are nuanced. You are multi-dimensional.",
+  "You are allowed to surprise people.",
+  "Your identity cannot be reduced\nto a stereotype.",
+  "You are living proof\nthat stereotypes are lies.",
+  // IDENTITY CONFUSION & INTERNAL STRUGGLE 241-260
+  "Feeling confused about your identity\nis not weakness — it is depth.",
+  "You are not required to have\nall the answers right now.",
+  "Questioning your identity\nmeans you are thinking deeply.",
+  "It is okay to not know\nexactly where you belong yet.",
+  "Your identity is not a problem\nto be solved.",
+  "You are allowed to change\nhow you see yourself.",
+  "Confusion is a chapter —\nnot the whole story.",
+  "You are allowed to hold\ncontradictions inside you.",
+  "Your struggle with identity\nis a sign of your depth.",
+  "There is no deadline\nfor knowing who you are.",
+  "The search for self is a sacred journey.",
+  "You can carry questions without\nbeing defined by uncertainty.",
+  "Being \"in between\" is a valid\nplace to be.",
+  "You do not have to resolve\nyour identity for others' comfort.",
+  "Not knowing is not failing.",
+  "Your internal world is rich\nand worth exploring.",
+  "You are allowed to be\na work in progress.",
+  "Your complexity is not confusion —\nit is wisdom in formation.",
+  "You will arrive at yourself\nin your own time.",
+  "The process of becoming is\njust as sacred as having become.",
+  // STRENGTH & RESISTANCE 261-280
+  "You have survived what others\ncannot even imagine.",
+  "Your gentleness is not passivity.\nIt is chosen strength.",
+  "You resist by existing\nauthentically.",
+  "Your presence in spaces\nthat excluded people like you is power.",
+  "You do not need to be loud\nto make an impact.",
+  "Your softness is not a target —\nit is a shield.",
+  "You break barriers\njust by being yourself.",
+  "You are carrying the pride\nof those who could not speak.",
+  "Your resilience is not just personal.\nIt is ancestral.",
+  "You resist erasure every day.",
+  "You hold your head high\nin rooms that were not built for you.",
+  "Your story dismantles\nevery stereotype about your people.",
+  "You are stronger than\nthe systems that tried to diminish you.",
+  "Every time you succeed,\nyou open a door for others.",
+  "Your voice is an act of resistance.",
+  "You do not need armor.\nYou are the armor.",
+  "You are not a survivor by luck.\nYou are a survivor by strength.",
+  "You carry the fire\nof generations before you.",
+  "Your dignity cannot be taken —\nonly you can give it away.",
+  "You are not a victim of history —\nyou are part of its evolution.",
+  // FINDING COMMUNITY 281-290
+  "You are not the only one\nwho has felt this way.",
+  "There are others just like you,\nlooking for someone just like you.",
+  "You deserve friendships\nthat see your full self.",
+  "Your community does not have to\nlook the same as you.",
+  "You belong somewhere —\neven if you haven't found it yet.",
+  "Building community is an act of love.",
+  "You do not have to carry\nyour story alone.",
+  "Being found by your people\nchanges everything.",
+  "Chosen family is still family.",
+  "Your people are out there —\nand they need you too.",
+  // FUTURE & SELF-EMPOWERMENT 291-300
+  "You are building a future\nthat your ancestors prayed for.",
+  "Your future is not limited\nby your past.",
+  "You can go places your parents\ncould only dream of.",
+  "You are not starting over.\nYou are building forward.",
+  "Your bilingual mind is a superpower.",
+  "You are not a victim of circumstance.\nYou are an architect of possibility.",
+  "You are not a victim of history —\nyou are part of its evolution.",
+  "Your voice can shift conversations.",
+  "You are more powerful than prejudice.",
+  "You are not defined by the bias you face.",
+  // DAILY MANTRAS: IDENTITY 301-310
+  "I am not half. I am whole.",
+  "I am enough in every culture I belong to.",
+  "I am proud of where I come from.",
+  "I am allowed to be complex.",
+  "I am more than a label.",
+  "I am not a stereotype.",
+  "I am both — and that is powerful.",
+  "I am rooted and rising.",
+  "I am not confused; I am evolving.",
+  "I am becoming my fullest self.",
+  // DAILY MANTRAS: ROOTS 311-320
+  "My roots are strong, even from far away.",
+  "My ancestors walk with me.",
+  "My heritage is a gift.",
+  "My culture lives in me.",
+  "My story matters.",
+  "My name deserves respect.",
+  "My skin carries history.",
+  "My blood remembers strength.",
+  "My identity is not up for debate.",
+  "My roots are not fragile.",
+  // DAILY MANTRAS: STRENGTH 321-330
+  "I am stronger than prejudice.",
+  "I rise above ignorance.",
+  "I stand tall in every room.",
+  "I take up space confidently.",
+  "I protect my peace.",
+  "I do not shrink for anyone.",
+  "I honor my boundaries.",
+  "I am resilient.",
+  "I turn pain into power.",
+  "I face challenges with courage.",
+  // DAILY MANTRAS: SELF-WORTH 331-340
+  "I deserve respect.",
+  "I deserve to feel safe.",
+  "I deserve to be heard.",
+  "I deserve to belong.",
+  "I am worthy without proof.",
+  "I do not need to overachieve to matter.",
+  "I release the need to explain myself.",
+  "I am not responsible for others' ignorance.",
+  "I choose self-respect.",
+  "I honor who I am today.",
+  // DAILY MANTRAS: BETWEEN WORLDS 341-350
+  "I belong in more than one place.",
+  "I carry two worlds with pride.",
+  "I can love both sides of me.",
+  "I do not have to choose.",
+  "I embrace my hyphenated identity.",
+  "I am a bridge, not a divide.",
+  "I create my own definition of home.",
+  "I celebrate all parts of me.",
+  "I am global and grounded.",
+  "I am not torn — I am expanded.",
+  // DAILY MANTRAS: HEALING FROM RACISM 351-360
+  "I reject internalized shame.",
+  "I release inherited silence.",
+  "I unlearn what harms me.",
+  "I speak up when I am ready.",
+  "I validate my feelings.",
+  "I trust my experience.",
+  "I am not \"too sensitive.\"",
+  "I am not imagining injustice.",
+  "I deserve fairness.",
+  "I choose dignity every day.",
+  // DAILY MANTRAS: GROWTH 361-370
+  "I am allowed to grow into my culture.",
+  "I am learning at my own pace.",
+  "I forgive myself for past shame.",
+  "I reclaim what I once hid.",
+  "I am curious about my roots.",
+  "I welcome deeper understanding.",
+  "I evolve without losing myself.",
+  "I am not late to my identity.",
+  "I am becoming braver each year.",
+  "I am proud of my progress.",
+  // DAILY MANTRAS: COMMUNITY 371-380
+  "I am not alone.",
+  "I find people who see me.",
+  "I choose friendships that honor me.",
+  "I build spaces where I feel safe.",
+  "I connect with others who share my story.",
+  "I am worthy of true belonging.",
+  "I am supported across oceans.",
+  "I carry my family's love with me.",
+  "I am part of something bigger.",
+  "I help create change.",
+  // DAILY MANTRAS: FUTURE 381-390
+  "I shape my own narrative.",
+  "I redefine what Filipino looks like abroad.",
+  "I am building a future with pride.",
+  "I transform struggle into wisdom.",
+  "I use my voice with purpose.",
+  "I step forward with confidence.",
+  "I am not limited by bias.",
+  "I honor my journey.",
+  "I carry courage into tomorrow.",
+  "I am writing a powerful story.",
+  // DAILY MANTRAS: DAILY POWER 391-400
+  "I wake up grounded.",
+  "I move through the world with dignity.",
+  "I breathe in confidence.",
+  "I release comparison.",
+  "I walk in quiet strength.",
+  "I smile with pride.",
+  "I remember who I am.",
+  "I stand firm in my identity.",
+  "I am enough — always.",
+  "I am Filipino. I am whole. I am proud.",
+];
+
+const AFFIRMATIONS_TL = [
+  // BELONGING 1-10
+  "Hindi mo kailangang pumili ng isang mundo.\nIpinanganak ka para magdala ng dalawa.",
+  "Ang pagiging iba ay hindi kahinaan.\nIto ang iyong superpower.",
+  "Hindi ka naliligaw sa pagitan ng mga kultura —\nikaw ay isang tulay.",
+  "Ang tahanan ay hindi lang isang lugar.\nNasa dugo mo ito.",
+  "Naririto ka sa lahat ng dako\nkung saan nakatayo ang iyong puso.",
+  "Hindi mo kailangang lumito para makasali.",
+  "Ang iyong kwento ay mas malaki\nkaysa sa isang bansa.",
+  "Hindi ka \"masyadong Pilipino\"\nni \"hindi sapat na Pilipino.\"\nIkaw ay sapat.",
+  "Dalawang kultura ay nangangahulugang\ndoble ang karunungan.",
+  "Hindi ka hiwalay.\nIkaw ay pinalawak.",
+  // LANGUAGE & ACCENT 11-20
+  "Ang iyong diin ay hindi dapat itago.\nIto ay patunay ng iyong paglalakbay.",
+  "Kahit hindi ka marunong mag-Tagalog nang maayos,\nang iyong puso ay nakakaunawa.",
+  "Lumalago ang wika sa paglipas ng panahon —\nlumalago ang pagkakakilanlan mula sa pagmamahal.",
+  "Ang maling pagbigkas ng isang salita\nay hindi nagtatanggal ng iyong mga ugat.",
+  "Ang bawat wikang sinasalita mo\nay nagdadagdag ng kulay sa iyong boses.",
+  "Ang iyong katahimikan sa isang wika\nay hindi nangangahulugang walang laman.",
+  "Okay lang na nag-aaral ka pa rin.",
+  "Ang iyong \"po\" at \"opo\" ay nasa\niyong paggalang, hindi lang sa iyong mga salita.",
+  "Kahit basag na Filipino, Filipino pa rin.",
+  "Ang iyong boses ay mahalaga\nsa bawat wika.",
+  // BEING "HALF" 21-30
+  "Hindi ka kalahati ng anuman.\nIkaw ay doble.",
+  "Ang mga halo-halong ugat ay nagpapalaki\nng matibay na puno.",
+  "Ang pagiging kalahating Pilipino ay\npagtanggap ng dalawang kwento.",
+  "Ikaw ay magandang kombinasyon,\nhindi kalituhan.",
+  "Ang iyong pagkakakilanlan ay\nhindi problema sa matematika.",
+  "Hindi mo kailangang patunayan\nang iyong pagiging Pilipino.",
+  "Ang iyong dugo ay nagdadala\nng mga pulo at karagatan.",
+  "Ikaw ay buo, kahit hindi naiintindihan\nng iba.",
+  "Ang pagiging iba ay nagpapabihis\nsa iyo ng pagiging bihasa.",
+  "Ang iyong pamana ay bagay na tuklasin,\nhindi ipagtanggol.",
+  // FAMILY & ANCESTRY 31-40
+  "Tumawid ang iyong mga ninuno sa mga karagatan\npara makatawid ka sa mga hangganan.",
+  "Ang kanilang katapangan ay nabubuhay sa iyo.",
+  "Nagdadala ka ng likas na tibay\nmula sa maraming henerasyon.",
+  "Ang iyong apelyido ay may mga kwento.",
+  "Kahit malayo sa Pilipinas,\nhumihinga pa rin ang iyong mga ugat.",
+  "Ang sakripisyo ng iyong mga lolo't lola\nay ang iyong pundasyon.",
+  "Ikaw ay isang sagot sa panalangin ng isang tao.",
+  "Ang kasaysayan ng iyong pamilya\nay ang iyong nakatagong lakas.",
+  "Ang mga pulo ay nakatira\nsa tibok ng iyong puso.",
+  "Hindi ka nag-iisa —\nlalakad ka kasama ang iyong mga ninuno.",
+  // BULLYING & STEREOTYPES 41-50
+  "Ang kamangmangan ng iba\nay hindi mo pasan.",
+  "Ikaw ay higit pa sa mga stereotype.",
+  "Ang iyong kulay ng balat ay sikat ng araw,\nhindi bagay na itago.",
+  "Tumayo nang matuwid — nagmumula ka sa mga mandirigma.",
+  "Hindi maaaring patahimikin ng kanilang tawa\nang iyong pagmamalaki.",
+  "Hindi ka utang na loob sa paliwanag sa sinuman.",
+  "Hindi ka maliit.",
+  "Ang pagiging mababa ang tingin sa iyo\nay isang lihim na kalamangan.",
+  "Pinahihintulutang mag-okupa\nng espasyo ang iyong sarili.",
+  "Ang iyong kultura ay hindi biro.",
+  // FILIPINO PRIDE 51-60
+  "Ang Pilipinas ay higit pa sa\nipinakita sa mga aklat-aralin.",
+  "Nagmumula ka sa mga taong\nnakakabuo pagkatapos ng mga bagyo.",
+  "Ang iyong kultura ay mayaman,\nhindi \"ikatlong mundo.\"",
+  "Ang kabutihan ng Pilipino ay lakas.",
+  "Ang pagiging mapagpatuloy ay kapangyarihan.",
+  "Tinatawid mo ang bayanihan sa iyong espiritu.",
+  "Ang tibay ay tumatakbo sa iyong mga ugat.",
+  "Ang iyong ngiti ay may init ng araw.",
+  "Ang mga pusong Pilipino ay matapang na puso.",
+  "Ikaw ay bahagi ng pandaigdigang pamilya.",
+  // CREATING YOUR OWN IDENTITY 61-70
+  "Ikaw ang magtatakda kung sino ka.",
+  "Pinahihintulutan kang mag-evolve.",
+  "Ang pagkakakilanlan ay isang paglalakbay,\nhindi isang pagsubok.",
+  "Hindi mo kailangang masok\nsa isang kahon.",
+  "Maaari kang magmahal ng adobo at pizza.",
+  "Maaari kang sumayaw sa K-pop at P-pop.",
+  "Hindi ka nakakalito —\nikaw ay kumplikado.",
+  "Maaari kang bumuo ng sariling\nbersiyon ng tahanan.",
+  "Ikaw ay parehong tradisyon at kinabukasan.",
+  "Ikaw ang iyong sariling kahulugan.",
+  // RESILIENCE 71-80
+  "Nagmumula ka sa mga taong bumabangon\nmatapos ang mga bagyo.",
+  "Kaya mong mabuhay sa kahirapan.",
+  "Ang bawat pakikibaka ay humuhubog ng lakas.",
+  "Mas malakas ka kaysa sa alinlangan.",
+  "Ang iyong mga luha ay nagdidilig ng paglago.",
+  "Itinayo ka para sa katapangan.",
+  "Kaya mong harapin ang mga hindi pamilyar na lugar.",
+  "Hindi ka mahina.",
+  "Ang iyong kwento ay patuloy na nagbubukas.",
+  "Mahahanap mo ang iyong lugar.",
+  // SELF-LOVE & ACCEPTANCE 81-90
+  "Karapat-dapat ka ng pagmamalaki.",
+  "Ang iyong kayumanggi na balat\nay nagliliwanag sa kasaysayan.",
+  "Hindi ka \"masyadong marami.\"",
+  "Hindi ka \"hindi sapat.\"",
+  "Nararapat kang makaramdam ng pagmamalaki\nsa iyong mga ugat.",
+  "Ang iyong kultura ay isang regalo.",
+  "Hindi mo kailangan ng pahintulot na\nmahalin ang pinanggalingan mo.",
+  "Pinahihintulutan kang ipagdiwang\nang parehong panig.",
+  "Ang iyong pagkakakilanlan ay bagay na parangalan.",
+  "Ikaw ay magandang may maraming antas.",
+  // HOPE & FUTURE 91-100
+  "Isang araw, magpapasalamat ka sa iyong sarili\nna hindi nagtago.",
+  "Ang iyong natatanging katangian\nay magbubukas ng mga pinto.",
+  "Magbibigay inspirasyon ka sa mga tulad mo.",
+  "Ang iyong kwento ay mahalaga.",
+  "Nagtatayo ka ng mga tulay\npara sa susunod na henerasyon.",
+  "Ikaw ay patunay na maaaring\nnabuhay nang magkasama ang mga kultura.",
+  "Ang iyong paglalakbay ay makapangyarihan.",
+  "Hindi ka nag-iisa sa bagay na ito.",
+  "May espasyo sa mundo\npara sa lahat ng ikaw.",
+  "Ikaw ay eksakto kung sino ang dapat kang maging.",
+  // BETWEEN TWO WORLDS 101-120
+  "Ipinanganak ka kung saan nagtatagpo ang mga karagatan —\niyon ay hindi kalituhan, iyon ay kapangyarihan.",
+  "Hindi ka nakukulong sa pagitan.\nNakatayo ka sa gitna ng posibilidad.",
+  "Dalawang kultura ay hindi pumupunit sa iyo —\npinapalawak nila ang iyong puso.",
+  "Pinahihintulutan kang mahalin ang parehong lugar\nnang walang kasalanan.",
+  "Hindi ka nagtataksil sa isang panig\nsa pamamagitan ng pagtanggap sa isa.",
+  "Maaaring tanungin ka ng mundo na pumili.\nHindi mo kailangang gawin iyon.",
+  "Hindi ka hiwalay — ikaw ay may maraming antas.",
+  "Nagdadala ka ng iba't ibang langit sa isang kaluluwa.",
+  "Hindi ka naliligaw.\nIkaw ay may maramihang ugat.",
+  "Hindi ka outsider sa lahat ng dako —\nikaw ay insider sa higit sa isang lugar.",
+  "Ang iyong buhay ay hindi hati. Ito ay pinalawak.",
+  "Hindi ka kalahati ng dalawang tahanan.\nIkaw ay ganap na pareho.",
+  "Ang gitla sa iyong pagkakakilanlan ay hindi\npaghahati — ito ay tulay.",
+  "Nagsasalita ka ng higit sa isang wika ng pagmamahal.",
+  "Nagdiriwang ka ng higit sa isang paraan ng pagiging.",
+  "Alam mo kung paano mag-angkop — iyon ay karunungan.",
+  "Ang iyong duality ay ang iyong lalim.",
+  "Maaari kang maging ugat at maabot pa rin.",
+  "Ang pagiging sa pagitan ng mga mundo\nay nangangahulugang nakikita mo ang hindi nakikita ng iba.",
+  "Ikaw ang kinabukasan ng mga kulturang nagbabago nang magkasama.",
+  // ROOTS & BLOOD MEMORY 121-140
+  "Ang iyong mga ugat ay umaabot\nmahigit sa iyong lugar ng kapanganakan.",
+  "Nagdadala ka ng alaala ng mga pulo\nsa iyong mga buto.",
+  "Ang mga panalangin ng iyong mga ninuno\nay nagtayo ng lupaing nilalakaran mo.",
+  "Ang karagatan sa pagitan mo at ng Pilipinas\nay hindi makakaputol ng iyong koneksyon.",
+  "Naaalala ng iyong dugo ang hindi pa\nnatutunan ng iyong isipan.",
+  "Hindi ka walang ugat — ikaw ay malayo ang abot.",
+  "Ang iyong pamana ay hindi nag-eexpire\ndahil nakatira ka sa ibang bansa.",
+  "Ang Pilipino sa iyo ay hindi nababawasan.\nLumalago ito sa bagong paraan.",
+  "Ang iyong mga ugat ay hindi nangangailangan ng lupa —\nnangangailangan sila ng alaala.",
+  "Ang iyong kasaysayan ay karapat-dapat malaman.",
+  "Nagmumula ka sa mga taong may malalim na pananampalataya\nat malalim na pagmamahal.",
+  "Ang lakas ng iyong mga ninuno\nay dumadaloy sa iyong mga ugat.",
+  "Dala mo ang mga lola at lolo sa iyo\nsaan ka man pumunta.",
+  "Ang sakripisyo ng iyong pamilya ay nagtanim ng mga buto\nna patuloy kang namumukadkad mula.",
+  "Hindi ka nadiskonekta sa iyong kultura.\nIkaw ay nasa isang bagong kabanata nito.",
+  "Ang iyong linya ng dugo ay isang kwento ng kaligtasan.",
+  "Ikaw ay isang buhay na extension ng iyong mga tao.",
+  "Ang iyong mga ugat ay hindi nakikita ngunit hindi masisira.",
+  "Pinararangalan mo ang iyong mga ninuno\nsa pamamagitan ng pagtayo nang tuwid.",
+  "Ang iyong pamana ay ang iyong mana.",
+  // WHEN YOU FEEL "NOT ENOUGH" 141-160
+  "Ang pakiramdam na \"hindi sapat\" ay sugat —\nhindi katotohanan.",
+  "Hindi mo kailangang makamit\nang iyong lugar sa iyong sariling kultura.",
+  "Ang hindi pagsasalita ng Tagalog nang maayos\nay hindi nagpapababa ng iyong pagiging Pilipino.",
+  "Ang hindi pagkilala sa bawat tradisyon\nay hindi nagtatanggal ng iyong pamana.",
+  "Kabilang ka kahit pakiramdam mo ay hindi nakikita.",
+  "Ang pakiramdam ng outsider ay pansamantala;\nang iyong pagkakakilanlan ay permanente.",
+  "Ikaw ay sapat — sa parehong mundo, sa lahat ng mundo.",
+  "Hindi mo kailangang patunayan ang anuman sa sinuman.",
+  "Ang iyong halaga ay hindi sinusukat\nsa kung gaano ka Pilipino.",
+  "Ang kahihiyan ay hindi kabilang sa iyong kwento.",
+  "Nag-aaral ka pa rin, at iyon ay sapat.",
+  "Ang mga paghatol ng ibang Pilipino\nay hindi nagtatakda ng iyong pagkakakilanlan.",
+  "Hindi ka mas kaunti sa pagiging mas marami.",
+  "Hindi ka sira para sa pagiging iba.",
+  "Ang tahimik na pagmamalaki sa loob mo ay totoo.",
+  "Dala mo ang iyong kultura sa mga paraan\nna hindi nakikita ng iba.",
+  "Ang pagiging hindi sigurado ay hindi nangangahulugang\nwa ka naliligaw.",
+  "Nararapat kang bawiin ang iyong pagkakakilanlan\nsa iyong sariling mga termino.",
+  "Hindi ka kailanman nilikha para\nmasok sa isang kahulugan.",
+  "Hindi ka isang impostor sa iyong sariling kultura.",
+  // IMMIGRANT PARENTS & FAMILY SACRIFICE 161-180
+  "Iniwan ng iyong mga magulang ang isang mundo\npara makapagmana ka ng mas marami.",
+  "Ang kanilang sakripisyo ay hindi presyur —\nito ay patunay ng pagmamahal.",
+  "Hindi mo utang sa iyong mga magulang\nang pagiging perpekto, ngunit maaari mong dalhin ang kanilang katapangan.",
+  "Ang bigat na dinadala nila ay gumawa ng espasyo\npara sa iyong kalayaan.",
+  "Ang kanilang katahimikan tungkol sa kahirapan\nay isang uri ng tapang.",
+  "Pinalaki ka ng pagmamahal na nagpanggap\nbilang pagsusumikap.",
+  "Ang accent ng iyong magulang ay musika,\nhindi kahihiyan.",
+  "Ang kanilang mga pangarap ay hindi namatay\nng lumipat sila — naging iyo ang mga iyon.",
+  "Ang kwento ng OFW ay isang kwento ng pagmamahal.",
+  "Hindi umalis ang iyong mga magulang sa Pilipinas.\nPinalawak nila ito.",
+  "Ang pagluluto sa bahay ay kung paano\nngiti ng iyong kultura sa iyo sa kabila ng distansya.",
+  "Ang kanilang mga kamay ay nagdala ng sakripisyo;\nang iyong mga kamay ay nagdadala ng posibilidad.",
+  "Ang landas ng iyong pamilya para sa kaligtasan\nay naging iyong landas sa lakas.",
+  "Dumating sila nang wala para\nmakapaging isang bagay ka.",
+  "Ang kanilang pagmamahal ay tumawid sa mga karagatan\nbago ka pa man ipinanganak.",
+  "Ikaw ang sagot sa pinakamalaking panalangin\nng iyong mga magulang.",
+  "Ang sakripisyo sa pagitan ng mga henerasyon ay\nang wika ng pagmamahal ng Pilipino.",
+  "Ang pagsusumikap ng iyong mga magulang ay\nang iyong minang katapangan.",
+  "Hindi mo kailangang magdala ng saloobin;\nkailangan mong magdala ng pasasalamat at kagalakan.",
+  "Ikaw ang pinakadakilang pag-asa ng iyong pamilya —\nat ikaw ay tumataas.",
+  // GROWING INTO PRIDE 181-200
+  "Ang pagmamalaki ay hindi ibinibigay — ito ay lumalaki.",
+  "Lumalaki ka sa iyong pagkakakilanlan sa sarili mong bilis.",
+  "Okay lang na huli kang mahalin\nkung saan ka nagmula.",
+  "Ang pagmamalaki ay madalas na dumarating\npagkatapos ng kirot.",
+  "Ang iyong paglalakbay sa pagmamahal sa sarili ay wasto,\ngaano man ito katagal.",
+  "Walang maling paraan upang tuklasin\nang iyong mga ugat.",
+  "Ang bawat pagkaing Pilipino na sinusubukan mo\nay muling pagbabawi.",
+  "Ang bawat salitang Tagalog na natututunan mo\nay isang galaw ng pagmamahal.",
+  "Hindi mo kailangang maging perpektong Pilipino\npara maging proud na Pilipino.",
+  "Ang iyong pagmamalaki ay maaaring mabagal lumaki —\nngunit lumalaki ito.",
+  "Isang araw ay isusuot mo ang iyong pagkakakilanlan\nparang korona.",
+  "Ang kahihiyang naramdaman mo noon\nay hindi katotohanan ng iyong sarili.",
+  "Ang paglaki sa pagmamalaki ay nangangahulugang\npag-alis ng mga kasinungalingang sinabi ng iba sa iyo.",
+  "Pinahihintulutan kang maging proud\nsa mga bagay na naaral mo pa rin.",
+  "Ang iyong kultura ay nararapat\nsa iyong pag-usisa.",
+  "Ang bawat henerasyon ay may bagong pagkakataon\nna bawiin ang pagmamalaki.",
+  "Hindi ka nagtataksil sa iyong mga ugat\nsa pamamagitan ng pangangailangan ng oras para mahanap ang mga ito.",
+  "Ang pagmamalaki ng iyong mga tao\nay naghihintay sa iyo kapag handa ka na.",
+  "Tingin mo sa panahong ito sa hinaharap\nat mabibighani sa iyong paglago.",
+  "Ang iyong pagmamalaki ay nagiging.",
+  // WHEN RACISM HURTS 201-220
+  "Ang rasismo ang problema.\nHindi ikaw.",
+  "Hindi mo nararapat ang sinabi sa iyo.",
+  "Ang iyong kirot ay wasto.",
+  "Hindi ka oversensitive.\nIkaw ay mulat.",
+  "Ang pagiging napagmaliit\nay hindi nagpapalako sa iyo nang maliit.",
+  "Pinahihintulutan kang magalit.",
+  "Pinahihintulutan kang masaktan.",
+  "Hindi ka responsable sa\npag-educate sa lahat ng nagkakamali sa iyo.",
+  "Ang sinabi nila ay nagpapakita ng kanilang kamangmangan,\nhindi ng iyong halaga.",
+  "Hindi ka mas kaunti dahil\ntinrato ka nila nang mas kaunti.",
+  "Ang iyong balat ay maganda.\nAng kanilang pagkiling ay hindi iyong katotohanan.",
+  "Ang mga microaggression ay hindi \"maliit.\"\nAng iyong mga damdamin ay hindi \"masyadong marami.\"",
+  "Pinahihintulutan kang magtakda ng mga limitasyon\nsa mga nagpapaliit sa iyo.",
+  "Ang pagaling mula sa rasismo ay matapang na gawa.",
+  "Hindi mo kailangang patawarin\nsa kanilang timeline.",
+  "Karapat-dapat ka ng dignidad sa bawat espasyo.",
+  "Ikaw ay higit pa sa sinabi ng pagkiling tungkol sa iyo.",
+  "Sa tuwing tumitindig ka,\npinarararangalan mo ang iyong mga tao.",
+  "Ang iyong pagtutol ay isang anyo ng pagmamahal.",
+  "Hindi ka kailanman ang problema.",
+  // STEREOTYPES & BEING BOXED IN 221-240
+  "Hindi ka yaya, nars,\no estadistika.",
+  "Hindi ka ang iyong diin.",
+  "Hindi ka ang iyong pagkain.",
+  "Hindi ka modelo ng minorya.",
+  "Hindi mo kailangang maging pambihira\npara karapat-dapat sa paggalang.",
+  "Ang iyong tahimik na lakas ay hindi kahinaan.",
+  "Hindi ka kinakailangang ngumiti\nsa diskriminasyon.",
+  "Hindi ka \"exotic.\"",
+  "Hindi ka background character\nsa kwento ng iba.",
+  "Ikaw ang pangunahing karakter ng iyong sariling buhay.",
+  "Hindi ka limitado ng\ninaasahan ng iba mula sa mga Pilipino.",
+  "Maaari kang maging siyentipiko, artist,\nlider — lahat nang sabay.",
+  "Hindi ka punchline.",
+  "Hindi ka nandito para gawing komportable ang iba\nsa kanilang mga pagpapalagay.",
+  "Hindi ka utang ng pagganap\nng kanilang inaasahang Pilipino.",
+  "Ang iyong kumplikasyon ay sinisira ang bawat kahon\nna sinusubukan nilang ilagay sa iyo.",
+  "Ikaw ay maraming aspeto. Ikaw ay multi-dimensional.",
+  "Pinahihintulutan kang magulat sa mga tao.",
+  "Ang iyong pagkakakilanlan ay hindi maaaring\nbawasan sa isang stereotype.",
+  "Ikaw ay buhay na patunay\nna ang mga stereotype ay kasinungalingan.",
+  // IDENTITY CONFUSION & INTERNAL STRUGGLE 241-260
+  "Ang pakiramdam ng kalituhan tungkol sa iyong pagkakakilanlan\nay hindi kahinaan — ito ay lalim.",
+  "Hindi mo kailangang magkaroon\nng lahat ng sagot ngayon.",
+  "Ang pagtatanong sa iyong pagkakakilanlan\nay nangangahulugang nag-iisip ka nang malalim.",
+  "Okay lang na hindi mo pa alam\neksaktong kung saan ka kabilang.",
+  "Ang iyong pagkakakilanlan ay hindi problema\nna kailangang resolbahin.",
+  "Pinahihintulutan kang baguhin\nkung paano mo nakikita ang iyong sarili.",
+  "Ang kalituhan ay isang kabanata —\nhindi ang buong kwento.",
+  "Pinahihintulutan kang magdala\nng mga kontradiksyon sa loob mo.",
+  "Ang iyong pakikibaka sa pagkakakilanlan\nay tanda ng iyong lalim.",
+  "Walang deadline\npara malaman kung sino ka.",
+  "Ang paghahanap ng sarili ay isang sagradong paglalakbay.",
+  "Maaari kang magdala ng mga tanong nang hindi\ntinutukuyan ng kawalan ng katiyakan.",
+  "Ang pagiging \"sa pagitan\" ay isang wasto\nna lugar na maging.",
+  "Hindi mo kailangang resolbahin\nang iyong pagkakakilanlan para sa kaginhawaan ng iba.",
+  "Ang hindi pag-alam ay hindi pagkabigo.",
+  "Ang iyong panloob na mundo ay mayaman\nat karapat-dapat tuklasin.",
+  "Pinahihintulutan kang maging\nwork in progress.",
+  "Ang iyong kumplikasyon ay hindi kalituhan —\nito ay karunungan sa paghubog.",
+  "Mararating mo ang iyong sarili\nsa sarili mong oras.",
+  "Ang proseso ng pagiging ay\nkasing sagrado ng pagkakaroon.",
+  // STRENGTH & RESISTANCE 261-280
+  "Nakaligtas ka sa hindi maiisip\nng iba.",
+  "Ang iyong kahinahunan ay hindi pasibidad.\nIto ay piniling lakas.",
+  "Lumalaban ka sa pamamagitan ng\nautentikong pagiging.",
+  "Ang iyong presensya sa mga lugar\nna hindi tinanggap ang tulad mo ay kapangyarihan.",
+  "Hindi mo kailangang maging malakas\npara magkaroon ng epekto.",
+  "Ang iyong lambot ay hindi target —\nito ay isang kalasag.",
+  "Sinisira mo ang mga hadlang\nsa pamamagitan ng pagiging iyong sarili.",
+  "Dala mo ang pagmamalaki\nng mga hindi makapagsalita.",
+  "Ang iyong tibay ay hindi lang personal.\nIto ay pangninuno.",
+  "Lumalaban ka sa pagkabura araw-araw.",
+  "Itinaas mo ang iyong ulo\nsa mga silid na hindi itinayo para sa iyo.",
+  "Ang iyong kwento ay nagpapatibag\nng bawat stereotype tungkol sa iyong mga tao.",
+  "Ikaw ay mas malakas kaysa sa\nmga sistema na nagtangkang paliitin ka.",
+  "Sa tuwing nagtagumpay ka,\nbumubukas ka ng pinto para sa iba.",
+  "Ang iyong boses ay isang galaw ng pagtutol.",
+  "Hindi mo kailangan ng armas.\nIkaw ang armas.",
+  "Hindi ka nakaligtas sa pamamagitan ng swerte.\nIkaw ay nakaligtas sa pamamagitan ng lakas.",
+  "Dala mo ang apoy\nnng mga henerasyong nauna sa iyo.",
+  "Ang iyong dignidad ay hindi maaaring kunin —\nmaaari mo lamang itong ibigay.",
+  "Hindi ka biktima ng kasaysayan —\nikaw ay bahagi ng ebolusyon nito.",
+  // FINDING COMMUNITY 281-290
+  "Hindi ka nag-iisang\nnakaramdam ng ganito.",
+  "May mga tulad mo doon,\nnahanap ka ng tulad mo.",
+  "Nararapat kang magkaroon ng mga pagkakaibigan\nna nakikita ang iyong buong sarili.",
+  "Ang iyong komunidad ay hindi kailangang\nmagmukha ng parehong tulad mo.",
+  "Kabilang ka sa isang lugar —\nkahit hindi mo pa nahanap ito.",
+  "Ang pagtatayo ng komunidad ay isang galaw ng pagmamahal.",
+  "Hindi mo kailangang dalhin\nang iyong kwento nang mag-isa.",
+  "Ang pagkahanap ng iyong mga tao\nay nagbabago ng lahat.",
+  "Ang piling pamilya ay pamilya pa rin.",
+  "Ang iyong mga tao ay nandoon —\nat kailangan ka rin nila.",
+  // FUTURE & SELF-EMPOWERMENT 291-300
+  "Nagtatayo ka ng kinabukasan\nna ipinagdasal ng iyong mga ninuno.",
+  "Ang iyong kinabukasan ay hindi limitado\nng iyong nakaraan.",
+  "Makakapunta ka sa mga lugar\nna panaginip lang ng iyong mga magulang.",
+  "Hindi ka nagsisimula muli.\nNagtatayo ka ng pasulong.",
+  "Ang iyong bilinggwal na isipan\nay isang superpower.",
+  "Hindi ka biktima ng kalagayan.\nIkaw ay arkitekto ng posibilidad.",
+  "Hindi ka biktima ng kasaysayan —\nikaw ay bahagi ng ebolusyon nito.",
+  "Ang iyong boses ay maaaring magbago ng mga pag-uusap.",
+  "Ikaw ay mas makapangyarihan kaysa sa pagkiling.",
+  "Hindi ka tinutukuyan ng pagkiling na iyong nararamdaman.",
+  // DAILY MANTRAS: IDENTITY 301-310
+  "Hindi ako kalahati. Ako ay buo.",
+  "Ako ay sapat sa bawat kulturang kabilang ako.",
+  "Ipinagmamalaki ko kung saan ako nagmula.",
+  "Pinahihintulutan akong maging kumplikado.",
+  "Ako ay higit pa sa isang label.",
+  "Hindi ako stereotype.",
+  "Ako ay pareho — at iyon ay makapangyarihan.",
+  "Ako ay ugat at umaakyat.",
+  "Hindi ako nalilito; ako ay nagbabago.",
+  "Ako ay nagiging aking buong sarili.",
+  // DAILY MANTRAS: ROOTS 311-320
+  "Ang aking mga ugat ay matibay, kahit mula sa malayo.",
+  "Ang aking mga ninuno ay nakikisamang kasama ko.",
+  "Ang aking pamana ay isang regalo.",
+  "Ang aking kultura ay nabubuhay sa akin.",
+  "Ang aking kwento ay mahalaga.",
+  "Ang aking pangalan ay nararapat sa paggalang.",
+  "Ang aking balat ay nagdadala ng kasaysayan.",
+  "Naaalala ng aking dugo ang lakas.",
+  "Ang aking pagkakakilanlan ay hindi para sa debate.",
+  "Ang aking mga ugat ay hindi mahina.",
+  // DAILY MANTRAS: STRENGTH 321-330
+  "Ako ay mas malakas kaysa sa pagkiling.",
+  "Umaangat ako sa kamangmangan.",
+  "Tumitindig ako nang matuwid sa bawat silid.",
+  "Kumukuha ako ng espasyo nang may tiwala.",
+  "Pinoprotektahan ko ang aking kapayapaan.",
+  "Hindi ako lumilit para sa sinuman.",
+  "Pinarararangalan ko ang aking mga hangganan.",
+  "Ako ay matibay.",
+  "Ginagawa kong kapangyarihan ang kirot.",
+  "Hinaharap ko ang mga hamon nang may katapangan.",
+  // DAILY MANTRAS: SELF-WORTH 331-340
+  "Karapat-dapat ako sa paggalang.",
+  "Karapat-dapat akong makaramdam ng kaligtasan.",
+  "Karapat-dapat akong marinig.",
+  "Karapat-dapat akong makapabilang.",
+  "Ako ay karapat-dapat nang walang patunay.",
+  "Hindi ko kailangang mag-overachieve para maging mahalaga.",
+  "Pinalaya ko ang pangangailangan na magpaliwanag ng aking sarili.",
+  "Hindi ako responsable sa kamangmangan ng iba.",
+  "Pinipili ko ang paggalang sa sarili.",
+  "Pinarararangalan ko kung sino ako ngayon.",
+  // DAILY MANTRAS: BETWEEN WORLDS 341-350
+  "Ako ay kabilang sa higit sa isang lugar.",
+  "Dala ko ang dalawang mundo nang may pagmamalaki.",
+  "Maaari kong mahalin ang parehong panig ko.",
+  "Hindi ko kailangang pumili.",
+  "Tinatanggap ko ang aking hyphenated na pagkakakilanlan.",
+  "Ako ay tulay, hindi hati.",
+  "Lumilikha ako ng aking sariling kahulugan ng tahanan.",
+  "Ipinagdiriwang ko ang lahat ng bahagi ko.",
+  "Ako ay global at naka-ugat.",
+  "Hindi ako nahahati — ako ay pinalawak.",
+  // DAILY MANTRAS: HEALING FROM RACISM 351-360
+  "Tinatanggihan ko ang internalized na kahihiyan.",
+  "Pinalalaya ko ang minang katahimikan.",
+  "Nag-uunlearn ako ng nagpaparusa sa akin.",
+  "Nagsasalita ako kapag handa na ako.",
+  "Pinupatunayan ko ang aking mga damdamin.",
+  "Nagtitiwala ako sa aking karanasan.",
+  "Hindi ako \"masyadong sensitibo.\"",
+  "Hindi ko naiisip ang kawalan ng katarungan.",
+  "Nararapat ako sa pagiging patas.",
+  "Pinipili ko ang dignidad sa araw-araw.",
+  // DAILY MANTRAS: GROWTH 361-370
+  "Pinahihintulutan akong lumaki sa aking kultura.",
+  "Natututo ako sa sarili kong bilis.",
+  "Pinapatawad ko ang aking sarili para sa nakaraang kahihiyan.",
+  "Binabawi ko ang dating itinago ko.",
+  "Curious ako sa aking mga ugat.",
+  "Tinatanggap ko ang mas malalim na pag-unawa.",
+  "Nag-eevolve ako nang hindi nawawalan ng aking sarili.",
+  "Hindi ako huli sa aking pagkakakilanlan.",
+  "Nagiging matapang ako bawat taon.",
+  "Ipinagmamalaki ko ang aking progreso.",
+  // DAILY MANTRAS: COMMUNITY 371-380
+  "Hindi ako nag-iisa.",
+  "Nakahahanap ako ng mga taong nakakakita sa akin.",
+  "Pumipili ako ng mga pagkakaibigan na nagpaparangal sa akin.",
+  "Nagtatayo ako ng mga lugar kung saan ako ligtas.",
+  "Nagtatayo ako ng koneksyon sa iba na nagbabahagi ng aking kwento.",
+  "Ako ay karapat-dapat sa tunay na pag-aari.",
+  "Sinusuportahan ako sa kabila ng mga karagatan.",
+  "Dala ko ang pagmamahal ng aking pamilya sa akin.",
+  "Ako ay bahagi ng isang mas malaking bagay.",
+  "Nakatutulong akong lumikha ng pagbabago.",
+  // DAILY MANTRAS: FUTURE 381-390
+  "Hinuhubog ko ang aking sariling kwento.",
+  "Binibigyang-kahulugan ko muli kung ano ang hitsura\nng Pilipino sa ibang bansa.",
+  "Nagtatayo ako ng kinabukasan nang may pagmamalaki.",
+  "Ginagawa kong karunungan ang pakikibaka.",
+  "Gumagamit ako ng aking boses nang may layunin.",
+  "Sumusulong ako nang may tiwala.",
+  "Hindi ako limitado ng pagkiling.",
+  "Pinarararangalan ko ang aking paglalakbay.",
+  "Nagdadala ako ng katapangan sa bukas.",
+  "Sumulat ako ng makapangyarihang kwento.",
+  // DAILY MANTRAS: DAILY POWER 391-400
+  "Gumigising ako nang nakaugat.",
+  "Gumagalaw ako sa mundo\nnang may dignidad.",
+  "Humihinga ako ng tiwala.",
+  "Pinalaya ko ang paghahambing.",
+  "Lumalakad ako nang may tahimik na lakas.",
+  "Ngumingiti ako nang may pagmamalaki.",
+  "Naalala ko kung sino ako.",
+  "Nakatayo ako nang matibay sa aking pagkakakilanlan.",
+  "Ako ay sapat — palagi.",
+  "Ako ay Pilipino. Ako ay buo. Ako ay proud.",
+];
+
+// ==================== STATE ====================
+let favorites = JSON.parse(localStorage.getItem('aff_favorites') || '[]');
+let readSet = JSON.parse(localStorage.getItem('aff_read') || '[]');
+let currentLang = 'both';
+let favLang = 'both';
+let currentDailyIdx = 0;
+let deferredPrompt = null;
+
+// ==================== HELPERS ====================
+function getCatForNum(n) {
+  return CATEGORIES.find(c => n >= c.range[0] && n <= c.range[1]);
+}
+
+function getAccent(n) {
+  const cat = getCatForNum(n);
+  return cat ? cat.color : '#7c3aed';
+}
+
+function isFav(n) { return favorites.includes(n); }
+function isRead(n) { return readSet.includes(n); }
+
+function markRead(n) {
+  if (!isRead(n)) {
+    readSet.push(n);
+    localStorage.setItem('aff_read', JSON.stringify(readSet));
+    updateStats();
+  }
+}
+
+function toggleFav(n) {
+  if (isFav(n)) {
+    favorites = favorites.filter(x => x !== n);
+  } else {
+    favorites.push(n);
+  }
+  localStorage.setItem('aff_favorites', JSON.stringify(favorites));
+  updateStats();
+  return isFav(n);
+}
+
+function updateStats() {
+  document.getElementById('stat-fav').textContent = favorites.length;
+  document.getElementById('stat-read').textContent = readSet.length;
+  const pct = Math.round((readSet.length / 400) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+// ==================== AFFIRMATION CARD ====================
+function makeCard(n, lang, context) {
+  const en = AFFIRMATIONS_EN[n-1];
+  const tl = AFFIRMATIONS_TL[n-1];
+  const accent = getAccent(n);
+  const fav = isFav(n);
+  const cat = getCatForNum(n);
+
+  const card = document.createElement('div');
+  card.className = 'aff-card';
+  card.style.setProperty('--accent', accent);
+
+  let content = `<div class="aff-num">#${n} · ${cat ? cat.name : ''}</div>`;
+  if (lang === 'en' || lang === 'both') {
+    content += `<div class="aff-en">${en.replace(/\n/g,'<br>')}</div>`;
+  }
+  if (lang === 'tl' || lang === 'both') {
+    content += `<div class="aff-tl">${tl.replace(/\n/g,'<br>')}</div>`;
+  }
+  content += `<button class="fav-btn ${fav?'active':''}" data-n="${n}" onclick="handleFav(event,${n})">${fav?'❤️':'🤍'}</button>`;
+
+  card.innerHTML = content;
+  card.addEventListener('click', () => markRead(n));
+  return card;
+}
+
+function handleFav(e, n) {
+  e.stopPropagation();
+  const isNowFav = toggleFav(n);
+  const btn = e.target;
+  btn.textContent = isNowFav ? '❤️' : '🤍';
+  btn.classList.toggle('active', isNowFav);
+  if (document.getElementById('view-favorites').classList.contains('active')) {
+    renderFavorites();
+  }
+  // update daily card
+  updateDailyFavBtn();
+}
+
+// ==================== VIEWS ====================
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  document.querySelector(`[onclick="showView('${id}')"]`).classList.add('active');
+
+  if (id === 'favorites') renderFavorites();
+  if (id === 'home') updateStats();
+}
+
+// ==================== CATEGORIES ====================
+function renderCategoryGrid(containerId) {
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const card = document.createElement('div');
+    card.className = 'cat-card';
+    card.style.borderColor = cat.color + '44';
+    card.innerHTML = `
+      <div class="cat-icon">${cat.icon}</div>
+      <div class="cat-name">${cat.name}</div>
+      <div class="cat-tl" style="font-size:0.65rem;color:var(--text-muted);margin-top:2px">${cat.tl}</div>
+      <div class="cat-range">${cat.range[0]}–${cat.range[1]}</div>
+    `;
+    card.addEventListener('click', () => openCategory(cat));
+    grid.appendChild(card);
+  });
+}
+
+function openCategory(cat) {
+  document.getElementById('browse-categories').style.display = 'none';
+  document.getElementById('browse-list').style.display = 'block';
+  document.getElementById('browse-title').textContent = cat.icon + ' ' + cat.name;
+  document.getElementById('browse-sub').textContent = cat.tl + ' · #' + cat.range[0] + '–' + cat.range[1];
+  renderBrowseList(cat);
+  showView('browse');
+}
+
+function showCategories() {
+  document.getElementById('browse-categories').style.display = 'block';
+  document.getElementById('browse-list').style.display = 'none';
+}
+
+function renderBrowseList(cat) {
+  const container = document.getElementById('browse-affirmations');
+  container.innerHTML = '';
+  for (let n = cat.range[0]; n <= cat.range[1]; n++) {
+    container.appendChild(makeCard(n, currentLang, 'browse'));
+  }
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  ['en','tl','both'].forEach(l => {
+    document.getElementById('lang-'+l).classList.toggle('active', l === lang);
+  });
+  // re-render current category
+  const title = document.getElementById('browse-title').textContent;
+  const cat = CATEGORIES.find(c => title.includes(c.name));
+  if (cat) renderBrowseList(cat);
+}
+
+function setFavLang(lang) {
+  favLang = lang;
+  ['en','tl','both'].forEach(l => {
+    document.getElementById('fav-lang-'+l).classList.toggle('active', l === lang);
+  });
+  renderFavorites();
+}
+
+// ==================== FAVORITES ====================
+function renderFavorites() {
+  const list = document.getElementById('fav-list');
+  list.innerHTML = '';
+  if (favorites.length === 0) {
+    list.innerHTML = `<div class="empty"><div class="icon">🤍</div><div>No saved affirmations yet.<br>Tap the heart on any affirmation!</div></div>`;
+    return;
+  }
+  favorites.forEach(n => list.appendChild(makeCard(n, favLang, 'fav')));
+}
+
+// ==================== DAILY ====================
+function showAffirmation(n) {
+  currentDailyIdx = n;
+  document.getElementById('daily-num').textContent = '#' + n;
+  document.getElementById('daily-en').innerHTML = AFFIRMATIONS_EN[n-1].replace(/\n/g,'<br>');
+  document.getElementById('daily-tl').innerHTML = AFFIRMATIONS_TL[n-1].replace(/\n/g,'<br>');
+  updateDailyFavBtn();
+  markRead(n);
+}
+
+function updateDailyFavBtn() {
+  const btn = document.getElementById('daily-fav-btn');
+  if (isFav(currentDailyIdx)) {
+    btn.textContent = '❤️ Saved';
+    btn.style.background = '#dc2626';
+  } else {
+    btn.textContent = '♡ Save';
+    btn.style.background = '';
+  }
+}
+
+function toggleFavFromDaily() {
+  toggleFav(currentDailyIdx);
+  updateDailyFavBtn();
+}
+
+function randomAffirmation() {
+  const n = Math.floor(Math.random() * 400) + 1;
+  showAffirmation(n);
+  const card = document.getElementById('daily-card');
+  card.style.transform = 'scale(0.97)';
+  setTimeout(() => card.style.transform = '', 200);
+}
+
+function getDailyNumber() {
+  const today = new Date();
+  const start = new Date(today.getFullYear(), 0, 0);
+  const diff = today - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const dayOfYear = Math.floor(diff / oneDay);
+  return (dayOfYear % 400) + 1;
+}
+
+// ==================== SEARCH ====================
+function doSearch() {
+  const q = document.getElementById('search-input').value.toLowerCase().trim();
+  const container = document.getElementById('search-results');
+  container.innerHTML = '';
+
+  if (!q) {
+    container.innerHTML = `<div class="empty"><div class="icon">🌺</div><div>Type to search 400 affirmations</div></div>`;
+    return;
+  }
+
+  const results = [];
+  for (let n = 1; n <= 400; n++) {
+    const en = AFFIRMATIONS_EN[n-1].toLowerCase();
+    const tl = AFFIRMATIONS_TL[n-1].toLowerCase();
+    if (en.includes(q) || tl.includes(q)) results.push(n);
+  }
+
+  if (results.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="icon">🔍</div><div>No results found for "${q}"</div></div>`;
+    return;
+  }
+
+  results.forEach(n => container.appendChild(makeCard(n, 'both', 'search')));
+}
+
+// ==================== PWA INSTALL ====================
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('install-banner').style.display = 'flex';
+});
+
+document.getElementById('install-btn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const result = await deferredPrompt.userChoice;
+    if (result.outcome === 'accepted') {
+      document.getElementById('install-banner').style.display = 'none';
+    }
+    deferredPrompt = null;
+  }
+});
+
+// ==================== INIT ====================
+renderCategoryGrid('home-categories');
+renderCategoryGrid('all-categories');
+showAffirmation(getDailyNumber());
+updateStats();
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
